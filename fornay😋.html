@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mau Jadi Pacar Aku? 🤍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            color: #ff4757;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #57606f;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Media Container (Foto & Video) */
+        .media-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .media-box {
+            width: 50%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #fff;
+            border: 3px solid #ff7675;
+        }
+
+        .media-box img, .media-box video {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .media-label {
+            font-size: 11px;
+            color: #ff6b81;
+            padding: 4px 0;
+            font-weight: 600;
+            background: #ffeaa7;
+        }
+
+        /* Tombol Interaksi */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #yesBtn {
+            background-color: #2ed573;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.05);
+            background-color: #26af5f;
+        }
+
+        #noBtn {
+            background-color: #ff4757;
+            color: white;
+        }
+
+        #noBtn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Efek Hati Berjatuhan di Background */
+        .heart {
+            position: absolute;
+            color: #ff6b81;
+            font-size: 20px;
+            animation: floatUp 4s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Hai Ammaa... ✨</h1>
+        <p>Udah lama kita jalan bareng tanpa status yang jelas. Mau gak, mulai hari ini kita resmi jadian? 🥺🤍</p>
+
+        <div class="media-container">
+            <div class="media-box">
+                <img src="2.jpeg" alt="Foto Kita">
+                <div class="media-label">Our Moment 📸</div>
+            </div>
+            <div class="media-box">
+                <video src="2.mp4" autoplay loop muted playsinline></video>
+                <div class="media-label">Cute Video 🎥</div>
+            </div>
+        </div>
+
+        <p style="font-weight: 600; color: #2f3542; margin-bottom: 5px;">Jadi, jawabannya apa nih?</p>
+
+        <div class="btn-group">
+            <button id="yesBtn" onclick="acceptAnswer('Mau Banget! 💖')">Mau Banget! 💖</button>
+            <button id="noBtn" onclick="acceptAnswer('Enggak  (Tapi Boong, Fix Diterima!)')">Enggak </button>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menangani pilihan (apapun yang diklik, hasilnya tetap diterima)
+        function acceptAnswer(pilihanUser) {
+            Swal.fire({
+                title: 'Yeeeeay! 🎉💖',
+                html: `Kamu milih: <b>${pilihanUser}</b><br><br>Eitss, apapun pilihannya pokoknya fix diterima ya! Gak ada penolakan! 🥰<br><br><b>📸 Screenshot layar ini sekarang dan kirim ke aku ya!</b>`,
+                icon: 'success',
+                confirmButtonText: 'Kirim ke WhatsApp 💌',
+                confirmButtonColor: '#2ed573'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Otomatis arahkan ke WhatsApp kamu dengan pesan konfirmasi
+                    window.location.href = "https://wa.me/6282120409756?text=Aku%20udah%20screenshot%20nih!%20Pokoknya%20fix%20resmi%20jadian%20ya!%20🥰🤍";
+                }
+            });
+        }
+
+        // Efek Animasi Hati Muncul Terus Menerus
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
